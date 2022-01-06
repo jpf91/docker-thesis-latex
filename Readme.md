@@ -27,13 +27,11 @@ touch ./ssh_keys/authorized_keys
 podman run --rm --name thesis-latex  \
     -p 3222:22 \
     -v ./ssh_keys:/etc/ssh/keys/:Z \
-    -v ./ssh_keys/authorized_keys:/root/.ssh/authorized_keys:Z \
-    -v ./root_home:/root/:Z \
-    -v ./latex_doc/:/root/latex_doc:Z \
+    -v ./root:/root/:Z \
     quay.io/jpfau/thesis-latex:2022_01_06
 ```
 
-SSH hot keys will be automatically generated and placed in `ssh_keys`. You can then place your latex documents in `latex_doc` as that folder is shared with the container.
+SSH hot keys will be automatically generated and placed in `ssh_keys`. You can then place your latex documents in `root` as that folder is shared with the container (in `/root`).
 Usually, a better way to access the containter is using Visual Studio Code and the remote ssh tools.
 
  To connect to the container using SSH:
@@ -41,7 +39,7 @@ Usually, a better way to access the containter is using Visual Studio Code and t
 ssh -p 3222 root@127.0.0.1
 ```
 
-If you want to use public key login, make sure that the `/root/.ssh/authorized_keys` file is mounted to persistent storage as shown above. Then:
+If you want to use public key login:
 ```
 ssh-copy-id -p 3222 root@localhost
 ```
@@ -52,8 +50,7 @@ ssh-copy-id -p 3222 root@localhost
 | :----: | --- |
 | `-p 22` | To expose the SSH port. |
 | `-v /etc/ssh/keys/` | If you want to have persistent SSH host keys so your SSH clients don't complain about changed keys when connecting. |
-| `-v /root/latex_doc` | If you want to mount your latex document from somewhere. |
-| `-v /root/` | To make the root folder persistent. VSCode installs it's server there, so to avoid having to reinstall all the time. |
+| `-v /root/` | To make the root folder persistent. VSCode installs it's server there, so to avoid having to reinstall all the time. You can also place your tex files here. |
 
 
 ## Support Info
