@@ -24,7 +24,6 @@ Here are some instructions and snippets to help you get started creating a conta
 ### Running using podman cli
 
 ```
-touch ./ssh_keys/authorized_keys
 podman run --rm --name thesis-latex  \
     -p 3222:22 \
     -v ./ssh_keys:/etc/ssh/keys/:Z \
