@@ -1,9 +1,10 @@
 FROM registry.fedoraproject.org/fedora:35
+LABEL org.opencontainers.image.source="https://github.com/jpf91/docker-thesis-latex"
 
 RUN dnf install -y passwd
 RUN echo "root" | passwd root --stdin
 
-RUN dnf update -y &&
+RUN dnf update -y && \
     dnf install -y openssh-server openssh-clients \
         zsh findutils hostname iputils \
         make \

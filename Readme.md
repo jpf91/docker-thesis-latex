@@ -1,4 +1,5 @@
-# [jpfau/thesis-latex](https://github.com/jpf91/docker-thesis-latex) [![Docker Repository on Quay](https://quay.io/repository/jpfau/thesis-latex/status "Docker Repository on Quay")](https://quay.io/repository/jpfau/thesis-latex)
+# docker-thesis-latex
+[![Build Status](https://github.com/jpf91/docker-thesis-latex/workflows/publish/badge.svg)](https://github.com/jpf91/docker-thesis-latex/actions)
 
 This image provides a full texlive installation, some related tools (svg/pdf conversion utilities) and an SSH server.
 
@@ -28,7 +29,7 @@ podman run --rm --name thesis-latex  \
     -p 3222:22 \
     -v ./ssh_keys:/etc/ssh/keys/:Z \
     -v ./root:/root/:Z \
-    quay.io/jpfau/thesis-latex:2022_01_06
+    ghcr.io/jpf91/thesis-latex:2022_01_06
 ```
 
 SSH hot keys will be automatically generated and placed in `ssh_keys`. You can then place your latex documents in `root` as that folder is shared with the container (in `/root`).
@@ -65,7 +66,7 @@ If you want to make local modifications to these images for development purposes
 ```
 git clone https://github.com/jpf91/docker-thesis-latex.git
 cd docker-thesis-latex
-podman build -t quay.io/jpfau/thesis-latex:latest .
+podman build -t ghcr.io/jpf91/thesis-latex:latest .
 ```
 
 ## Versions
