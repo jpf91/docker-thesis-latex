@@ -7,3 +7,4 @@ PubkeyAuthentication yes
 MaxAuthTries 1000
 
 AuthorizedKeysFile .ssh/authorized_keys
+Subsystem sftp internal-sftp
