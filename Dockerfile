@@ -7,7 +7,7 @@ RUN dnf update -y && \
     dnf install -y openssh-server openssh-clients \
         zsh findutils hostname iputils \
         make \
-        git texlive-scheme-full poppler-utils inkscape librsvg2-tools python3-cairosvg texlive-xindy  && \
+        git texlive-scheme-full poppler-utils inkscape librsvg2-tools python3-cairosvg texlive-xindy pdftk && \
     dnf clean all -y
 
 ADD sshd_config /etc/ssh/sshd_config
